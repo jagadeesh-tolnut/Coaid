@@ -4,7 +4,7 @@ from .models import Active_cases, Death_cases, Covid_tests, updateinfo
 
 def Get_Data():
     url = "https://covid-193.p.rapidapi.com/history"
-    querystring = {"country":"India","day":"2021-05-28"}
+    querystring = {"country":"India","day":"2021-05-29"}
     headers = {
         'x-rapidapi-key': "bf5d549a77mshbc72405cd326346p1a22f9jsn9520774b3508",
         'x-rapidapi-host': "covid-193.p.rapidapi.com"
@@ -28,7 +28,8 @@ def Post_Data():
     mydict = Get_Data()
     # Update info
     Info = updateinfo()
-    Info.timesnap = mydict['time']
+    Info.date = datetime.strptime(mydict['date'], "%Y-%m-%d")
+    Info.timesnap = datetime.strptime(mydict['time'], "%H:%M:%S")
     Info.save()
     # Active Cases
     Active = Active_cases()

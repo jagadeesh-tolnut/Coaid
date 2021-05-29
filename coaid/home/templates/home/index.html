@@ -1,12 +1,502 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <!--Mystyle-->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
     <title>Help & Heal</title>
 </head>
 <body>
-    <h1>home</h1>
+    <div class="navbar navbar-expand-lg bg-dark navbar-dark">
+        <div class="container-fluid">
+            <a href="index.html" class="navbar-brand">C<span>O-</span>A<span>id</span></a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                <div class="navbar-nav ml-auto">
+                    <a href="index.html" class="nav-item nav-link active">Home</a>
+                    <a href="bd.html" class="nav-item nav-link">Bed Availability</a>
+                    <a href="ox.html" class="nav-item nav-link">ChatBot</a>
+                    <a href="vaccination details.html" class="nav-item nav-link">Vaccination</a>
+                    
+                    </div>
+            </div>
+        </div>
+    </div>
+    <!-- Nav Bar End -->
+    <!-- Hero Start -->
+    <div class="hero">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-sm-12 col-md-6">
+                    <div class="hero-text"><h1>We Are Here To Help You </h1></div>
+                </div>
+                <div class="col-sm-12 col-md-6 d-none d-md-block">
+                    <div class="hero-image">
+                        <img src="{% static 'Images/homepage/2.png' %}" alt="Covid-19"  height="400px">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Hero End -->
+    <h1 class="text-center text-4xl" id="h11">
+        <b>Dashboard</b></h1>
+        <div id="center">
+            <div class="hidden sm:block">
+
+                <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+
+                <div class="bg-white flex items-center justify-center px-5 py-5">
+                    <div class="rounded shadow-xl overflow-hidden w-full lg:flex" x-data="{activeCases:activeCases()}" x-init="activeCases.renderChart()">
+                        <div class="flex w-full lg:w-1/2 px-5  pb-4 pt-8 bg-indigo-500 text-white items-center">
+                            <canvas id="ActiveChart" class="w-full"></canvas>
+                        </div>
+                        <div class="flex w-full lg:w-1/2 p-5 bg-gray-100 text-gray-600 items-center">
+                            <div class="w-full">
+                                <h3 class="text-lg md:text-xl lg:text-2xl xl:text-4xl font-semibold leading-tight text-gray-800 mb-3">Active Cases</h3>
+                                <h6 class="text-md leading-tight mb-5">Updated&nbsp;&nbsp;-&nbsp;&nbsp;{{ updateinfo.timesnap }} IST</h6>
+                                <div class="flex w-full items-end mb-5">
+                                    <span class="block leading-none sm:text-4xl md:text-lg  lg:text-6xl text-gray-800">{{ Active_cases.active }}</span>
+                                    <span class="block leading-5 text-lg ml-1 text-green-500" style="margin-bottom: 30px;">▲ {{ Active_cases.new }}</span>
+                                </div>
+                                <div class="flex w-full sm:text-md md:text-sm lg:text-lg ">
+                                    <div class="flex w-5/12">
+                                        <div class="flex-1 pr-3 text-left font-semibold">Date</div>
+                                        <div class="flex-1 px-3 text-right">{{ Active_cases.date }}</div>
+                                    </div>
+                                    <div class="flex w-7/12">
+                                        <div class="flex-1 px-3 text-left font-semibold">Active</div>
+                                        <div class="flex-1 pl-3 text-right">{{ Active_cases.active }}</div>
+                                    </div>
+                                </div>
+                                <div class="flex w-full sm:text-md  md:text-sm lg:text-lg">
+                                    <div class="flex w-5/12">
+                                        <div class="flex-1 pr-3 text-left font-semibold">Critical</div>
+                                        <div class="px-3 text-right">{{ Active_cases.critical }}</div>
+                                    </div>
+                                    <div class="flex w-7/12">
+                                        <div class="flex-1 px-3 text-left font-semibold">new</div>
+                                        <div class="pl-3 text-right">{{ Active_cases.new }}</div>
+                                    </div>
+                                </div>
+                                <div class="flex w-full sm:text-md md:text-sm lg:text-lg">
+                                    <div class="flex w-5/12">
+                                        <div class="flex-1 pr-3 text-left font-semibold">Recovered</div>
+                                        <div class="px-3 text-right">{{ Active_cases.recovered }}</div>
+                                    </div>
+                                    <div class="flex w-7/12">
+                                        <div class="flex-1 px-3 text-left font-semibold">Total Cases</div>
+                                        <div class="pl-3 text-right">{{ Active_cases.total }}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <script>
+                Number.prototype.m_formatter = function() {
+                    return this > 999999 ? (this / 1000000).toFixed(1) + 'M' : this
+                };
+                let activeCases = function(){
+                    return {
+                        chartData: {
+                            labels: {{ Active_labels | safe }},
+                            data: {{ Active_data }},
+                        },
+                        renderChart: function(){
+                            let c = false;
+
+                            Chart.helpers.each(Chart.instances, function(instance) {
+                                if (instance.chart.canvas.id == 'Activechart') {
+                                    c = instance;
+                                }
+                            });
+
+                            if(c) {
+                                c.destroy();
+                            }
+
+                            let ctx = document.getElementById('ActiveChart').getContext('2d');
+
+                            let chart = new Chart(ctx, {
+                                type: "line",
+                                data: {
+                                    labels: this.chartData.labels,
+                                    datasets: [
+                                        {
+                                            label: '',
+                                            backgroundColor: "rgba(255, 255, 255, 0.1)",
+                                            borderColor: "rgba(255, 255, 255, 1)",
+                                            pointBackgroundColor: "rgba(255, 255, 255, 1)",
+                                            data: this.chartData.data,
+                                        },
+                                    ],
+                                },
+                                layout: {
+                                    padding: {
+                                        right: 10
+                                    }
+                                },
+                                options: {
+                                    legend: {
+                                        display: false,
+                                    },
+                                    scales: {
+                                        yAxes: [{
+                                            ticks: {
+                                                fontColor: "rgba(255, 255, 255, 1)",
+                                            },
+                                            gridLines: {
+                                                display: false,
+                                            },
+                                        }],
+                                        xAxes: [{
+                                            ticks: {
+                                                fontColor: "rgba(255, 255, 255, 1)",
+                                            },
+                                            gridLines: {
+                                                color: "rgba(255, 255, 255, .2)",
+                                                borderDash: [5, 5],
+                                                zeroLineColor: "rgba(255, 255, 255, .2)",
+                                                zeroLineBorderDash: [5, 5]
+                                            },
+                                        }]
+                                    }
+                                }
+                            });
+                        }
+                    }
+                }
+                </script>
+                <div class="grid grid-cols-1 lg:grid-cols-2 p-5 gap-5">
+                <!--Death Chart-->
+                <div class="bg-white items-center justify-center">
+                    <div class="rounded shadow-xl overflow-hidden" x-data="{deathCases:deathCases()}" x-init="deathCases.renderChart()">
+                        <div class="px-5 pb-4 pt-8 bg-yellow-500 text-white items-center">
+                            <h1 class="center text-xl text-gray-200">Covid Test Chart</h1>
+                            <canvas id="DeathChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <script>
+                Number.prototype.m_formatter = function() {
+                    return this > 999999 ? (this / 1000000).toFixed(1) + 'M' : this
+                };
+                let deathCases = function(){
+                    return {
+                        chartData: {
+                            labels: {{ Test_labels | safe }},
+                            data: {{ Test_data }},
+                        },
+                        renderChart: function(){
+                            let c = false;
+
+                            Chart.helpers.each(Chart.instances, function(instance) {
+                                if (instance.chart.canvas.id == 'DeathChart') {
+                                    c = instance;
+                                }
+                            });
+
+                            if(c) {
+                                c.destroy();
+                            }
+
+                            let ctx = document.getElementById('DeathChart').getContext('2d');
+
+                            let chart = new Chart(ctx, {
+                                type: "line",
+                                data: {
+                                    labels: this.chartData.labels,
+                                    datasets: [
+                                        {
+                                            label: '',
+                                            backgroundColor: "rgba(255, 255, 255, 0.1)",
+                                            borderColor: "rgba(255, 255, 255, 1)",
+                                            pointBackgroundColor: "rgba(255, 255, 255, 1)",
+                                            data: this.chartData.data,
+                                        },
+                                    ],
+                                },
+                                layout: {
+                                    padding: {
+                                        right: 10
+                                    }
+                                },
+                                options: {
+                                    legend: {
+                                        display: false,
+                                    },
+                                    scales: {
+                                        yAxes: [{
+                                            ticks: {
+                                                fontColor: "rgba(255, 255, 255, 1)",
+                                            },
+                                            gridLines: {
+                                                display: false,
+                                            },
+                                        }],
+                                        xAxes: [{
+                                            ticks: {
+                                                fontColor: "rgba(255, 255, 255, 1)",
+                                            },
+                                            gridLines: {
+                                                color: "rgba(255, 255, 255, .2)",
+                                                borderDash: [5, 5],
+                                                zeroLineColor: "rgba(255, 255, 255, .2)",
+                                                zeroLineBorderDash: [5, 5]
+                                            },
+                                        }]
+                                    }
+                                }
+                            });
+                        }
+                    }
+                }
+                </script>
+                <!--Covid test Graph-->
+                <div class="bg-white items-center justify-center">
+                    <div class="rounded shadow-xl overflow-hidden" x-data="{TestCases:TestCases()}" x-init="TestCases.renderChart()">
+                        <div class="px-5 pb-4 pt-8 bg-pink-700 text-white items-center">
+                            <h1 class='center text-xl text-gray-200'>Death Chart</h1>
+                            <canvas id="TestChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <script>
+                Number.prototype.m_formatter = function() {
+                    return this > 999999 ? (this / 1000000).toFixed(1) + 'M' : this
+                };
+                let TestCases = function(){
+                    return {
+                        chartData: {
+                            labels: {{ Death_labels | safe }},
+                            data: {{ Death_data }},
+                        },
+                        renderChart: function(){
+                            let c = false;
+
+                            Chart.helpers.each(Chart.instances, function(instance) {
+                                if (instance.chart.canvas.id == 'TestChart') {
+                                    c = instance;
+                                }
+                            });
+
+                            if(c) {
+                                c.destroy();
+                            }
+
+                            let ctx = document.getElementById('TestChart').getContext('2d');
+
+                            let chart = new Chart(ctx, {
+                                type: "bar",
+                                data: {
+                                    labels: this.chartData.labels,
+                                    datasets: [
+                                        {
+                                            label: '',
+                                            backgroundColor: "rgba(255, 255, 255, 0.8)",
+                                            borderColor: "rgba(255, 255, 255, 1)",
+                                            pointBackgroundColor: "rgba(255, 255, 255, 1)",
+                                            data: this.chartData.data,
+                                        },
+                                    ],
+                                },
+                                layout: {
+                                    padding: {
+                                        right: 10
+                                    }
+                                },
+                                options: {
+                                    legend: {
+                                        display: false,
+                                    },
+                                    scales: {
+                                        yAxes: [{
+                                            ticks: {
+                                                fontColor: "rgba(255, 255, 255, 1)",
+                                            },
+                                            gridLines: {
+                                                display: false,
+                                            },
+                                        }],
+                                        xAxes: [{
+                                            ticks: {
+                                                fontColor: "rgba(255, 255, 255, 1)",
+                                            },
+                                            gridLines: {
+                                                color: "rgba(255, 255, 255, .2)",
+                                                borderDash: [5, 5],
+                                                zeroLineColor: "rgba(255, 255, 255, .2)",
+                                                zeroLineBorderDash: [5, 5]
+                                            },
+                                        }]
+                                    }
+                                }
+                            });
+                        }
+                    }
+                }
+                </script>
+                </div>
+            </div>
+            <!--cards-->
+            <div class="flex items-center justify-center text-gray-800">
+                <div class="p-4 lg:w-full">
+                  <div class="grid grid-cols-12 gap-4">
+                    <div class="col-span-12 sm:col-span-6 md:col-span-3">
+                      <div class="flex flex-row bg-white shadow-sm rounded p-4">
+                        <div class="flex items-center justify-center flex-shrink-0 h-12 w-12 rounded-xl bg-blue-100 text-blue-500">
+                          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                        </div>
+                        <div class="flex flex-col flex-grow ml-4">
+                          <div class="text-sm text-gray-500">Active</div>
+                          <div class="font-bold text-lg">{{ Active_cases.active }}</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-span-12 sm:col-span-6 md:col-span-3">
+                      <div class="flex flex-row bg-white shadow-sm rounded p-4">
+                        <div class="flex items-center justify-center flex-shrink-0 h-12 w-12 rounded-xl bg-green-100 text-green-500">
+                          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5" /></svg>
+                        </div>
+                        <div class="flex flex-col flex-grow ml-4">
+                          <div class="text-sm text-gray-500">Recovered</div>
+                          <div class="font-bold text-lg">{{ Active_cases.recovered }}</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-span-12 sm:col-span-6 md:col-span-3">
+                      <div class="flex flex-row bg-white shadow-sm rounded p-4">
+                        <div class="flex items-center justify-center flex-shrink-0 h-12 w-12 rounded-xl bg-orange-100 text-orange-500">
+                          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" /></svg>
+                        </div>
+                        <div class="flex flex-col flex-grow ml-4">
+                          <div class="text-sm text-gray-500">Tested</div>
+                          <div class="font-bold text-lg">{{ Covid_test.total }}</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-span-12 sm:col-span-6 md:col-span-3">
+                      <div class="flex flex-row bg-white shadow-sm rounded p-4">
+                        <div class="flex items-center justify-center flex-shrink-0 h-12 w-12 rounded-xl bg-red-100 text-red-500">  
+                          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.618 5.984A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016zM12 9v2m0 4h.01" /></svg>
+                        </div>
+                        <div class="flex flex-col flex-grow ml-4">
+                          <div class="text-sm text-gray-500">Deaths</div>
+                          <div class="font-bold text-lg">{{ Death_cases.total }}</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            <!--info-->
+            <div class="mt-20"></div>
+            <hr>
+            <div class="row mt-16">
+                <div class="column" id="c1">Overview <hr>
+                    <div id="col">
+                        <div>
+                            Coronavirus disease (COVID-19) is an infectious disease caused by a newly discovered corona virus.Most people infected with the COVID-19 virus will experience mild to moderate respiratory illness and recover without requiring special treatment.  Older people, and those with underlying medical problems like cardiovascular disease, diabetes, chronic respiratory disease, and cancer are more likely to develop serious illness.The best way to prevent and slow down transmission is to be well informed about the COVID-19 virus, the disease it causes and how it spreads. Protect yourself and others from infection by washing your hands or using an alcohol based rub frequently and not touching your face. 
+                            The COVID-19 virus spreads primarily through droplets of saliva or discharge from the nose when an infected person coughs or sneezes, so it’s important that you also practice respiratory etiquette (for example, by coughing into a flexed elbow).
+                            
+                            <p class="mt-4 mb-2 underline">Stay informed:</p>
+                            
+                            <ul class="list-disc list-inside">
+                                <li>Protect yourself: advice for the public</li>
+                                <li>Myth busters</li>
+                                <li>Questions and answers</li>
+                                <li>Situation reports</li>
+                                <li>All information on the COVID-19 outbreak</li>
+                            </ul>
+    
+                        </div>
+                    </div>
+                </div>
+                <div class="column"id="c1">Precautions <hr>
+                    <div id="col">
+                        <p class="mb-2 underline">To prevent infection and to slow transmission of COVID-19, do the following:</p>
+                        <ul class="list-disc list-inside">
+                        <li>Wash your hands regularly with soap and water, or clean them with alcohol-based hand rub.</li>
+                        <li>Maintain at least 1 metre distance between you and people coughing or sneezing.</li>
+                        <li>Avoid touching your face.</li>
+                        <li>Cover your mouth and nose when coughing or sneezing.</li>
+                        <li>Stay home if you feel unwell.</li>
+                        <li>Refrain from smoking and other activities that weaken the lungs.</li>
+                        <li>Practice physical distancing by avoiding unnecessary travel and staying away from large groups of people.</li>
+                        </ul>    
+                    </div>
+                </div>
+                <div class="column" id="c1">Symptoms <hr>
+                    <div id="col1">
+                        COVID-19 affects different people in different ways. Most infected people will develop mild to moderate illness and recover without hospitalization.
+                        <br>
+                        <p class="mt-4 mb-2 underline">Most common symptoms:</p>
+                        <ul class="list-disc list-inside">
+                            <li>fever.</li>
+                            <li>dry cough.</li>
+                            <li>tiredness.</li>
+                        </ul>
+    
+                        <p class="mt-4 mb-2 underline">Less common symptoms:</p>
+                        <ul class="list-disc list-inside">
+                        <li>aches and pains.</li>
+                        <li>sore throat.</li>
+                        <li>diarrhoea.</li>
+                        <li>conjunctivitis.</li>
+                        <li>headache.</li>
+                        <li>loss of taste or smell.</li>
+                        <li>a rash on skin, or discolouration of fingers or toes.</li>
+                        </ul>
+    
+                        <p class="mt-4 mb-2 underline">Serious symptoms:</p>
+                        <ul class="list-disc list-inside">
+                        <li>difficulty breathing or shortness of breath.</li>
+                        <li>chest pain or pressure.</li>
+                        <li>loss of speech or movement.</li>
+                        <li>Seek immediate medical attention if you have serious symptoms.  Always call before visiting your doctor or health facility. </li>
+                        </ul>
+                        People with mild symptoms who are otherwise healthy should manage their symptoms at home. 
+    
+                        On average it takes 5–6 days from when someone is infected with the virus for symptoms to show, however it can take up to 14 days. 
+                    </div>
+                </div>
+             </div>
+        </div>
+        <div id="more">
+            For more information Refer below <br>
+        </div>
+    
+        <div>
+            <a href="https://www.covid19india.org/" target="_blank" id="c3">More info </a>
+        </div>
+    <footer>
+    <p>For More help<br>
+    <a href="mailto:anshika.saxena050201@gmail.com">Mail us Here</a></p>
+    </footer>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <script src="{% static 'Js/wow.min.js' %}"></script>
+    <script src="{% static 'Js/main.js' %}"></script>
 </body>
 </html>
