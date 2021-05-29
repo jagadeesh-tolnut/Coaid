@@ -1,14 +1,21 @@
 from django.shortcuts import render
 from .models import Active_cases, Death_cases, Covid_tests, updateinfo
-from datetime import datetime
+from datetime import datetime, timedelta
 
 # Create your views here.
 def home(request):
-    date = datetime.today().strftime('%Y-%m-%d')
-    active_data = Active_cases.objects.get(date=date)
-    death_cases = Death_cases.objects.get(date=date)
-    covid_tests = Covid_tests.objects.get(date=date)
-    update_info = updateinfo.objects.get(date=date)
+    try:
+        date = datetime.today().strftime('%Y-%m-%d')
+        active_data = Active_cases.objects.get(date=date)
+        death_cases = Death_cases.objects.get(date=date)
+        covid_tests = Covid_tests.objects.get(date=date)
+        update_info = updateinfo.objects.get(date=date)
+    except:
+        date = datetime.today() - timedelta(1)
+        active_data = Active_cases.objects.get(date=date)
+        death_cases = Death_cases.objects.get(date=date)
+        covid_tests = Covid_tests.objects.get(date=date)
+        update_info = updateinfo.objects.get(date=date)
     Active_labels = []
     Active_data = []
     Death_labels = []
