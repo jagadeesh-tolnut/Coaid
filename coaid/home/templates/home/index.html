@@ -24,11 +24,9 @@
 
             <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                 <div class="navbar-nav ml-auto">
-                    <a href="index.html" class="nav-item nav-link active">Home</a>
-                    <a href="bd.html" class="nav-item nav-link">Bed Availability</a>
-                    <a href="ox.html" class="nav-item nav-link">ChatBot</a>
+                    <a href="{% url 'home:home' %}" class="nav-item nav-link active">Home</a>
+                    <a href="{% url 'chatbot:chatbot' %}" class="nav-item nav-link">ChatBot</a>
                     <a href="{% url 'vaccinationpage:vaccinationpage' %}" class="nav-item nav-link">Vaccination</a>
-                    
                     </div>
             </div>
         </div>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang = "en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'css/chatbot/style.css' %}">
+        <link href="{% static 'css/style.css' %}" rel="stylesheet">
+      </head>
+      <body>
+        <div class="navbar navbar-expand-lg bg-dark navbar-dark">
+            <div class="container-fluid">
+                <a href="index.html" class="navbar-brand">C<span>O-</span>A<span>id</span></a>
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+    
+                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                    <div class="navbar-nav ml-auto">
+                        <a href="{% url 'home:home' %}" class="nav-item nav-link active">Home</a>
+                        <a href="{% url 'chatbot:chatbot' %}" class="nav-item nav-link">ChatBot</a>
+                        <a href="{% url 'vaccinationpage:vaccinationpage' %}" class="nav-item nav-link">Vaccination</a>
+                        </div>
+                </div>
+            </div>
+        </div>
+        <!-- Nav Bar End -->
+        <!-- Hero Start -->
+        <div class="hero">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-sm-12 col-md-6">
+                        <div class="hero-text"><h1>We Are Here To Help You </h1></div>
+                    </div>
+                    <div class="col-sm-12 col-md-6 d-none d-md-block">
+                        <div class="hero-image">
+                            <img src="{% static 'Images/homepage/2.png' %}" alt="Covid-19"  height="400px">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Hero End -->    
+        <div class="chat-container container" style="width: 1000px;"></div>
+            <script src="https://npm-scalableminds.s3.eu-central-1.amazonaws.com/@scalableminds/chatroom@master/dist/Chatroom.js"/></script>
+            <script type="text/javascript">
+                var chatroom = new window.Chatroom({
+                    host: "http://localhost:5005",
+                    title: "Co-AID Chatbot",
+                    container: document.querySelector(".chat-container"),
+                    welcomeMessage: "I am Co-Aid chatbot, how can I help you?",
+                });
+                chatroom.openChat();
+            </script>
+        </div>
+        <footer>
+            <p>For More help<br>
+            <a href="mailto:anshika.saxena050201@gmail.com">Mail us Here</a></p>
+        </footer>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+        <script src="{% static 'Js/wow.min.js' %}"></script>
+        <script src="{% static 'Js/main.js' %}"></script>
+      </body>
+</html>

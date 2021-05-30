@@ -20,4 +20,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('home.urls')),
     path('FindCovisheild/', include('vaccinationpage.urls')),
+    path('chatbot/',include('chatbot.urls')),
 ]
