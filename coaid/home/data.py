@@ -3,8 +3,9 @@ from datetime import datetime
 from .models import Active_cases, Death_cases, Covid_tests, updateinfo
 
 def Get_Data():
+    date = datetime.today().strftime("%Y-%m-%d")
     url = "https://covid-193.p.rapidapi.com/history"
-    querystring = {"country":"India","day":"2021-05-29"}
+    querystring = {"country":"India","day":date}
     headers = {
         'x-rapidapi-key': "bf5d549a77mshbc72405cd326346p1a22f9jsn9520774b3508",
         'x-rapidapi-host': "covid-193.p.rapidapi.com"
