@@ -1,0 +1,193 @@
+version: "2.0"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - good afternoon
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+
+- intent: What_is_corona
+  examples: |
+    - what is corona?
+    - what is covid-19?
+    - tell me about corona virus
+    - can you explain about Covid?
+
+- intent: how_spread
+  examples: |
+    - how does the coronavirus spread?
+    - how covid spread?
+    - what are the possibilities of covid spreading
+
+- intent: how_covid_start
+  examples: |
+    - how did the coronavirus start?
+    - how covid spread start?
+    - where covid-19 started?
+    - when covid virus spread is started?
+
+- intent: covid_incubation
+  examples: |
+    - what is the incubation period for covid-19?
+    - what is the isolation time for corona
+    - how many days we should be in quarantine, if we got covid positive.
+    - what is the quarantine period for covid-19
+
+- intent: prevent_covid
+  examples: |
+    - how can I prevent from Covid?
+    - what can i do to prevent Corona viruses
+    - what can i do to be safe from Covid-19
+    - how can I be safe from covid 19?
+
+- intent: without_registration
+  examples: |
+    - Can a person get the COVID-19 vaccine without registration with Health Department?
+    - can we put vaccine without registration
+    - registration for vaccine is compulsory?
+    - any ways to put vaccine without registering?
+
+- intent: register_documents
+  examples: |
+    - What documents are required for registration of eligible beneficiary?
+    - documents needed to register for covid vaccine ?
+    - do we need any documents to register for vaccine?
+    - what proofs we neeed for the registration of the vaccine?
+
+- intent: illness_vaccine
+  examples: |
+    - If one is taking medicines for illnesses like Cancer, Diabetes, Hypertension etc, can take the COVID-19 vaccine?
+    - patient with sugar / Diabetes / cancer can take Vaccine?
+    - is it safe to take vaccine with Diabetes or Cancer ?
+
+
+- intent: covid_vaccine_register
+  examples: |
+    - Where should I register for the vaccination?
+    - where to register for covid vaccine?
+    - how to register for corona vaccine?
+    - how can I register for the vaccine?
+
+- intent: covid_vaccine_license
+  examples: |
+    - Which COVID-19 vaccines are licensed in India?
+    - what are the vaccines available in india?
+    - what vaccine I can take?
+    - what are the licensed vaccines in India?
+- intent: covid_avoid_alcohol
+  examples: |
+    - Should you avoid alcohol after receiving the COVID-19 vaccine?
+    - can I take alcohol after taking vaccine?
+    - should I avoid alcohol after consuming alcohol?
+
+- intent: vaccine_time_interval
+  examples: |
+    - What is the optimal time interval between the required two doses?
+    - what is the time interval between dose 1 and dose 2 ?
+    - when I should take dose 2 after taking dose 1
+
+- intent: covid_active_case
+  examples: |
+    - number of covid active cases?
+    - current active corona cases
+    - covid active cases now
+    - active covid cases today
+
+- intent: covid_recovered_case
+  examples: |
+    - number of covid recovered cases?
+    - current recovered corona cases
+    - covid recoverd cases now
+    - recoverd covid cases today
+
+- intent: covid_new_case
+  examples: |
+    - number of new covid cases?
+    - currently newly added corona cases
+    - new covid cases in india
+    - new covid cases today

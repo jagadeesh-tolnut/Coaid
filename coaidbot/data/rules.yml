@@ -1,0 +1,88 @@
+version: "2.0"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- rule: what is corona
+  steps:
+  - intent: What_is_corona
+  - action: utter_corona_def
+
+- rule: how covid spread
+  steps:
+  - intent: how_spread
+  - action: utter_covid_spread
+
+- rule: how covid start
+  steps:
+  - intent: how_covid_start
+  - action: utter_covid_start
+
+- rule: what is the incubation period for the covid
+  steps:
+  - intent: covid_incubation
+  - action: utter_incubation_period
+
+- rule: how to preventcovid
+  steps:
+  - intent: prevent_covid
+  - action: utter_prevent_covid
+
+- rule: can't vaccinate without registration
+  steps:
+  - intent: without_registration
+  - action: utter_without_registration
+
+- rule: required registration documents
+  steps:
+  - intent: register_documents
+  - action: utter_register_documents
+
+- rule: can ill persons take vaccine
+  steps:
+  - intent: illness_vaccine
+  - action: utter_illness_vaccine
+
+- rule: where to register for vaccine
+  steps:
+  - intent: covid_vaccine_register
+  - action: utter_vaccine_register
+
+- rule: what vaccines are availabe
+  steps:
+  - intent: covid_vaccine_license
+  - action: utter_vaccine_license
+
+- rule: should we avoid alcohol after vaccinaation
+  steps:
+  - intent: covid_avoid_alcohol
+  - action: utter_avoid_alcohol
+
+- rule: vaccine time interval
+  steps:
+  - intent: vaccine_time_interval
+  - action: utter_time_interval
+
+- rule: what is covid active cases
+  steps:
+  - intent: covid_active_case
+  - action: action_active_case
+
+- rule: what is the total recovered cases
+  steps:
+  - intent: covid_recovered_case
+  - action: action_recover_case
+
+- rule: what is today's new covid cases
+  steps:
+  - intent: covid_new_case
+  - action: action_new_case

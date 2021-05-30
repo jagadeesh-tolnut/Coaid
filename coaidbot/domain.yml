@@ -1,0 +1,92 @@
+version: "2.0"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - What_is_corona
+  - how_spread
+  - how_covid_start
+  - covid_incubation
+  - prevent_covid
+  - covid_active_case
+  - without_registration
+  - register_documents
+  - illness_vaccine
+  - covid_vaccine_register
+  - covid_vaccine_license
+  - covid_avoid_alcohol
+  - vaccine_time_interval
+  - covid_recovered_case
+  - covid_new_case
+
+actions:
+  - action_active_case
+  - action_recover_case
+  - action_new_case
+
+responses:
+  utter_greet:
+  - text: "Hey! How can I help you?"
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Tolnut."
+
+  utter_corona_def:
+  - text: "coronaviruses are a type of virus. There are many different kinds, and some cause disease. A coronavirus identified in 2019, SARS-CoV-2, has caused a pandemic of respiratory illness, called COVID-19."
+    image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.arlingtonlibrary.org%2Fsites%2Fdefault%2Ffiles%2F021420_ac_coronainfant_feat-1028x579.jpg&f=1&nofb=1"
+
+  utter_covid_spread:
+  - text: "As of now, researchers know that the coronavirus is spread through droplets and virus particles released into the air when an infected person breathes, talks, laughs, sings, coughs or sneezes. Larger droplets may fall to the ground in a few seconds, but tiny infectious particles can linger in the air and accumulate in indoor places, especially where many people are gathered and there is poor ventilation. This is why mask-wearing, hand hygiene and physical distancing are essential to preventing COVID-19."
+
+  utter_covid_start:
+  - text: "The first case of COVID-19 was reported Dec. 1, 2019, and the cause was a then-new coronavirus later named SARS-CoV-2. SARS-CoV-2 may have originated in an animal and changed (mutated) so it could cause illness in humans. In the past, several infectious disease outbreaks have been traced to viruses originating in birds, pigs, bats and other animals that mutated to become dangerous to humans. Research continues, and more study may reveal how and why the coronavirus evolved to cause pandemic disease."
+
+  utter_incubation_period:
+  - text: "Symptoms show up in people within two to 14 days of exposure to the virus. A person infected with the coronavirus is contagious to others for up to two days before symptoms appear, and they remain contagious to others for 10 to 20 days, depending upon their immune system and the severity of their illness. "
+
+  utter_prevent_covid:
+  - text: "The best way to prevent illness is to avoid being exposed to the virus. The CDC recommends everyday preventive actions to help prevent the spread of respiratory diseases. They include:\n1. Wash your hands often with plain soap and water. The CDC recommends washing your hands often with soap and water for at least 20 seconds, especially after you have been in a public place, or after blowing your nose, coughing, or sneezing. If soap and water are not available, the CDC recommends using an alcohol-based hand sanitizer that contains at least 60 percent alcohol. Learn more about safely using hand sanitizer.\n2. Cover your mouth and nose with a cloth face covering or non-surgical mask when around others. Find more information about how to select, wear, and clean your mask.\n3. Get the COVID-19 vaccine when it is offered to you. Once you are fully vaccinated, you may be able to start doing some things that you had stopped doing because of the pandemic.\n4. Follow CDC guidance on large gatherings, social distancing and mask wearing, based on if you are fully vaccinated or not."
+
+  utter_without_registration:
+  - text: " Registration of beneficiary is mandatory for vaccination for COVID 19. Only after registration the information on the session site to visit and time will be shared with the beneficiary."
+
+  utter_register_documents:
+  - text: "Any of the below mentioned ID with Photo may be produced at the time of registration:\n•Aadhar Card•Driving License\n•Health Insurance Smart Card issued under the scheme of Ministry of Labour\n•Mahatma Gandhi National Rural Employment Guarantee Act (MGNREGA) Job Card\n•Official identity cards issued to MPs/MLAs/MLCs\n•PAN Card\n•Passbooks issued by Bank/Post Office\n•Passport\n•Pension Document\n•Service Identity Cardwith photographissued to employees by Central/State Govt./PSUs/Public Limited Companies\n•Voter ID\n•Smart card issued by RGI under NPR"
+
+  utter_illness_vaccine:
+  - text: "Yes. Persons with one or more of these comorbid conditions are considered high risk category. They need to get COVID-19 vaccination."
+
+  utter_vaccine_register:
+  - text: "Register on the Co-WIN Portal and schedule your vaccination appointment. \nhttps://www.cowin.gov.in/home"
+
+  utter_vaccine_license:
+  - text: "Two vaccines were granted emergency use authorization by the Central Drugs Standard Control Organization (CDSCO) in India, Covishield® (AstraZeneca's vaccine manufactured by Serum Institute of India) and Covaxin® (manufactured by Bharat Biotech Limited). Sputnik - V has been granted EUA in the month of April 2021."
+
+  utter_avoid_alcohol:
+  - text: "As per experts, there is no evidence of alcohol impairing the effectiveness of the vaccine."
+
+  utter_time_interval:
+  - text: "The time interval between two doses of the Covishield vaccine has been extended from four-six weeks to four-eight weeks, while the second dose of Covaxin can be taken four to six weeks after the first dosage. The government has advised people to take the second dose of Covishield between six and eight weeks after the first and protection from the virus would be optimum. However, a delay beyond the eighth week may leave the beneficiary vulnerable."
+
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

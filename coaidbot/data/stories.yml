@@ -1,0 +1,50 @@
+version: "2.0"
+
+stories:
+
+- story: about covid
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: What_is_corona
+  - action: utter_corona_def
+  - intent: how_spread
+  - action: utter_covid_spread
+  - intent: how_covid_start
+  - action: utter_covid_start
+  - intent: covid_incubation
+  - action: utter_incubation_period
+  - intent: prevent_covid
+  - action: utter_prevent_covid
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: covid updates
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: covid_active_case
+  - action: action_active_case
+  - intent: covid_recovered_case
+  - action: action_recover_case
+  - intent: covid_new_case
+  - action: action_new_case
+
+- story: vaccine FAQs
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: without_registration
+  - action: utter_without_registration
+  - intent: register_documents
+  - action: utter_register_documents
+  - intent: illness_vaccine
+  - action: utter_illness_vaccine
+  - intent: covid_vaccine_register
+  - action: utter_vaccine_register
+  - intent: covid_vaccine_license
+  - action: utter_vaccine_license
+  - intent: covid_avoid_alcohol
+  - action: utter_avoid_alcohol
+  - intent: vaccine_time_interval
+  - action: utter_time_interval
